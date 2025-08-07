@@ -1,8 +1,8 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 name = "Event Ticketing Pro"
-client_id = "YOUR_CLIENT_ID_HERE"
-application_url = "https://your-app-url.com"
+client_id = "f1563c8fd966ad4ca7732c765e3de444"
+application_url = "https://ticket-forge-5e4b7e5068d7.herokuapp.com"
 embedded = true
 
 [access_scopes]
@@ -11,10 +11,8 @@ scopes = "write_products,read_products,write_orders,read_orders,read_customers,w
 
 [auth]
 redirect_urls = [
-  "https://your-app-url.com/auth/callback",
-  "https://your-app-url.com/auth/shopify/callback",
-  "https://localhost:3000/auth/callback",
-  "https://localhost:3000/auth/shopify/callback"
+  "https://ticket-forge-5e4b7e5068d7.herokuapp.com/auth/callback",
+  "https://ticket-forge-5e4b7e5068d7.herokuapp.com/auth/shopify/callback"
 ]
 
 [webhooks]
@@ -25,5 +23,5 @@ embedded = false
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "your-dev-store.myshopify.com"
+dev_store_url = "ticketforge-test.myshopify.com"
 include_config_on_deploy = true
