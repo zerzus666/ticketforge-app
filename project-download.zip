@@ -1,0 +1,92 @@
+# TicketForge - Event Ticketing Management System
+
+This is a complete React + TypeScript project for event ticketing management with advanced features including:
+
+## Features
+- Event Management with Geographic Sorting
+- Venue Management with Location Intelligence
+- Ticket Design System
+- Bulk Import Functionality
+- Inventory Management with Alerts
+- AI Event Assistant
+- Ticket Bundle Management
+- Pricing Plans
+- Dashboard with Analytics
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AIEventAssistant.tsx
+│   ├── BulkImport.tsx
+│   ├── Dashboard.tsx
+│   ├── EventManager.tsx
+│   ├── InventoryManager.tsx
+│   ├── PricingPlans.tsx
+│   ├── Sidebar.tsx
+│   ├── TicketBundleManager.tsx
+│   ├── TicketDesigner.tsx
+│   └── VenueManager.tsx
+├── types/
+│   └── index.ts
+├── utils/
+│   └── locationParser.ts
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+## Installation
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start development server:
+```bash
+npm run dev
+```
+
+## Key Components
+
+### EventManager
+- Geographic sorting by city, state, region, county
+- Automatic sold out and low stock warnings
+- SEO-optimized location display
+- Advanced filtering and search
+
+### VenueManager
+- Global venue database
+- Location parsing and enhancement
+- Geographic categorization
+- Capacity management
+
+### InventoryManager
+- Real-time ticket availability tracking
+- Automated alerts for low stock
+- Bundle inventory impact analysis
+- Transaction history
+
+### TicketDesigner
+- Professional ticket templates
+- AI-powered design generation
+- Color and typography customization
+- Real-time preview
+
+### BulkImport
+- CSV file upload with drag & drop
+- Template download
+- Import validation and error handling
+- Progress tracking
+
+## Technologies Used
+- React 18
+- TypeScript
+- Tailwind CSS
+- Lucide React Icons
+- Vite
+
+## License
+MIT License

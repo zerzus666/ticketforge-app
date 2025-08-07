@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id          String    @id
+  shop        String
+  state       String
+  isOnline    Boolean   @default(false)
+  scope       String?
+  expires     DateTime?
+  accessToken String
+  userId      BigInt?
+  firstName   String?
+  lastName    String?
+  email       String?
+  accountOwner Boolean  @default(false)
+  locale      String?
+  collaborator Boolean? @default(false)
+  emailVerified Boolean? @default(false)
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  shop        String
+  title       String
+  description String?
+  venue       String
+  address     String?
+  date        DateTime
+  time        String
+  status      EventStatus @default(DRAFT)
+  totalCapacity Int     @default(0)
+  soldTickets   Int     @default(0)
+  revenue       Float   @default(0)
+  shopifyProductId String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  ticketCategories TicketCategory[]
+  orders          EventOrder[]
+  
+  @@map("events")
+}
+
+model TicketCategory {
+  id          String   @id @default(cuid())
+  eventId     String
+  name        String
+  description String?
+  price       Float
+  capacity    Int
+  sold        Int      @default(0)
+  reserved    Int      @default(0)
+  shopifyVariantId String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  event       Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  orderItems  EventOrderItem[]
+  
+  @@map("ticket_categories")
+}
+
+model EventOrder {
+  id              String   @id @default(cuid())
+  eventId         String
+  shopifyOrderId  String
+  customerEmail   String
+  customerName    String?
+  totalAmount     Float
+  status          OrderStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  event           Event    @relation(fields: [eventId], references: [id])
+  items           EventOrderItem[]
+  
+  @@map("event_orders")
+}
+
+model EventOrderItem {
+  id                String   @id @default(cuid())
+  orderId           String
+  ticketCategoryId  String
+  quantity          Int
+  unitPrice         Float
+  totalPrice        Float
+  createdAt         DateTime @default(now())
+  
+  order             EventOrder     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  ticketCategory    TicketCategory @relation(fields: [ticketCategoryId], references: [id])
+  
+  @@map("event_order_items")
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  SOLD_OUT
+  CANCELLED
+  COMPLETED
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  REFUNDED
+}

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* React Quill Editor Styles */
+.ql-editor {
+  min-height: 200px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #f9fafb;
+}
+
+.ql-container {
+  border-bottom: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-family: inherit;
+}
+
+.ql-editor.ql-blank::before {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Custom Quill Button Styles */
+.ql-toolbar .ql-formats {
+  margin-right: 15px;
+}
+
+.ql-toolbar button {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.ql-toolbar button:hover {
+  background-color: #e5e7eb;
+}
+
+.ql-toolbar button.ql-active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Prose Styles for Preview */
+.prose {
+  max-width: none;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #374151;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+.prose blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose video {
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  max-width: 100%;
+  height: auto;
+}

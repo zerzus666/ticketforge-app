@@ -1,0 +1,10 @@
+{
+  "name": "Event Ticketing Pro",
+  "description": "Professional event ticketing app for Shopify stores",
+  "keywords": ["shopify", "events", "tickets", "hardticket", "shipping"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
